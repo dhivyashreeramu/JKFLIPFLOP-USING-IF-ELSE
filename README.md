@@ -34,15 +34,114 @@ The maximum possible groupings of adjacent ones are already shown in the figure.
 
 **Procedure**
 
-/* write all the steps invloved */
+Study the JK Flip-Flop Functionality
+
+Refer to the JK flip-flop truth table to understand its operation:
+
+J = 0, K = 0 → No change
+
+J = 0, K = 1 → Reset
+
+J = 1, K = 0 → Set
+
+J = 1, K = 1 → Toggle
+
+Create a New Verilog Project
+
+Open the Verilog simulation tool (ModelSim / Xilinx Vivado / Quartus / Icarus Verilog).
+
+Create a new project and add a new Verilog module file for the JK flip-flop.
+
+Write the Verilog Code for JK Flip-Flop
+
+Define inputs: J, K, clk (and reset if required).
+
+Define output: Q (and Q_bar if required).
+
+Use an always block triggered on the positive edge of the clock.
+
+Implement the JK logic using a case statement or conditional statements.
+
+Save and Compile the Design
+
+Check for syntax errors.
+
+Ensure the design compiles successfully without warnings or errors.
+
+Create a Testbench
+
+Write a separate Verilog testbench module.
+
+Declare the required input signals as reg and outputs as wire.
+
+Instantiate the JK flip-flop module.
+
+Generate a clock signal using an always block.
+
+Apply all possible combinations of J and K inputs at different clock cycles.
+
+Simulate the Design
+
+Run the simulation.
+
+Observe the output Q for each combination of J and K.
+
+Ensure changes occur only at the active clock edge.
+
+Verify Using Functional Table
+
+Compare the simulated output with the JK flip-flop truth table.
+
+Confirm:
+
+No change for J=0, K=0
+
+Reset for J=0, K=1
+
+Set for J=1, K=0
+
+Toggle for J=1, K=1
+
+Analyze the Waveforms
+
+Use the waveform viewer to verify timing relationships.
+
+Ensure proper synchronization between inputs and clock.
+
+Document the Results
+
+Record observations.
+
+Capture waveform screenshots if required.
+
+Conclude that the JK flip-flop functions as expected.
 
 **PROGRAM**
 
-/* Program for flipflops and verify its truth table in quartus using Verilog programming. Developed by: RegisterNumber:
-*/
+```
+module jkff(j,k,clk,q,qbar);
+input j,k,clk;
+output reg q,qbar;
+initial 
+begin
+q=1'b0;
+q=1'b1;
+end 
 
+always @(posedge clk)
+begin 
+q<=(j&~q)|(~k&q);
+qbar<=~q;
+end
+endmodule
+```
 **RTL LOGIC FOR FLIPFLOPS**
+![WhatsApp Image 2025-12-15 at 13 01 46_80310d99](https://github.com/user-attachments/assets/88f857b9-0ced-40a8-ab78-908f3ada3c22)
+
 
 **TIMING DIGRAMS FOR FLIP FLOPS**
+![WhatsApp Image 2025-12-15 at 13 24 51_2698bb4d](https://github.com/user-attachments/assets/5ee66dc6-ad85-4135-bf4e-6fa561ccf001)
+
 
 **RESULTS**
+ thus the program To implement JK flipflop using verilog and validating their functionality using their functional tables sucessfully
